@@ -15,7 +15,9 @@ exports.up = function(knex, Promise) {
     table.increments();
     table.string('name').notNullable();
     table.string('animal_type').notNullable();
-  })  .createTable('zoo_keepers', function(table){
+  })
+
+  .createTable('zoo_keepers', function(table){
     table.increments();
     table.integer('zone_id').unsigned().references('zones.id');
     table.string('name').notNullable();
@@ -24,11 +26,13 @@ exports.up = function(knex, Promise) {
     table.increments();
     table.integer('zone_id').unsigned().references('zones.id');
     table.integer('trainer_id').unsigned().references('trainers.id');
+    table.string('name').notNullable();
     table.string('photo');
     table.string('type').notNullable();
     table.string('species').notNullable();
     table.integer('age').notNullable();
   })
+  
 };
 
-exports.down = (knex, Promise) => knex.schema.dropTable('trainers').dropTable('zones').dropTable('tricks').dropTable('zoo_keepers').dropTable('animals')
+exports.down = (knex, Promise) => knex.schema.dropTable('animals').dropTable('zoo_keepers').dropTable('trainers').dropTable('zones').dropTable('tricks')
