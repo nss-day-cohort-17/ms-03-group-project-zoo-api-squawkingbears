@@ -13,14 +13,13 @@ exports.up = function(knex, Promise) {
     table.increments();
     table.string('name').notNullable();
     table.string('animal_type').notNullable();
-    table.string('photo').notNullable();
+    table.string('photo');
   })
   .createTable('zoo_keepers', function(table){
     table.increments();
     table.integer('zone_id').unsigned().references('zones.id');
     table.string('name').notNullable();
-    table.integer('zone').notNullable();
-    table.string('photo').notNullable();
+    table.string('photo');
   })
   .createTable('zones', function(table){
     table.increments();
@@ -34,4 +33,4 @@ exports.up = function(knex, Promise) {
   })
 };
 
-exports.down = (knex, Promise) => knex.schema.dropTable('animals').dropTable('trainers').dropTable('zoo_keepers').dropTable('zones').dropTable('tricks')
+exports.down = (knex, Promise) => knex.schema.dropTable('trainers').dropTable('zones').dropTable('tricks').dropTable('zoo_keepers').dropTable('animals')
