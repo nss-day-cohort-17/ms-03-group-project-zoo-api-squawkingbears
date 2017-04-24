@@ -20,3 +20,8 @@ Help the zoo to draw more visitors (and PETA protests) by introducing trainers t
 + Try adding a `tricks` collection. Is a trick unique to a trainer? Or can only certain animal types do a certain trick, but multiple trainers can teach the trick? You decide. Make it difficult. You can do it!  
 + Update the Angualr app to add CRUD interactions for trainers, animal types, and tricks. 
 + Have fun with it. It's your last group project!
+
+
+
+### Database ERD
+![ERD](/SquawkingbearsZOO.png?raw=true "Optional Title")
