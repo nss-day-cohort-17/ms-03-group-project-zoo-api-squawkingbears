@@ -31,7 +31,7 @@ const Trick = bookshelf.Model.extend({
   },
   editTrick: function(id, trickEdits) {
     return this.where({id})
-    .save(trainerEdits, {method: update})
+    .save(trickEdits, {method: 'update'})
     .then(trick => trick)
     .catch(error => error)
   }
