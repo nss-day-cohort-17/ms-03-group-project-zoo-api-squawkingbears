@@ -5,7 +5,7 @@ require('./zoneMd')
 require('./trainerMd')
 
 const Animal = bookshelf.Model.extend({
-  tableName: animals,
+  tableName: "animals",
   zone: function() { return this.hasOne('Zone')},
   trainer: function() { return this.hasOne('Trainer')}
 }, {

@@ -4,7 +4,7 @@ const { bookshelf } = require('../db/database')
 require('./animalMd')
 
 const Trainer = bookshelf.Model.extend({
-  tableName: trainers,
+  tableName: "trainers",
   animals: function() { return this.hasMany('Animal')}
 }, {
   getAll: function() {
