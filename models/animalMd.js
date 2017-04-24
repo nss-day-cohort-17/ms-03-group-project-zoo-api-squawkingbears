@@ -22,7 +22,10 @@ const Animal = bookshelf.Model.extend({
     .catch(error => error)
   },
   addAnimal: function(newAnimal) {
-
+    return this.forge(newAnimal)
+    .save()
+    .then(animal => animal)
+    .catch(error => error)
   },
   deleteAnimal: function(id) {
     return this.forge({id})
