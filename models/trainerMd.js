@@ -33,7 +33,7 @@ const Trainer = bookshelf.Model.extend({
   },
   editTrainer: function(id, trainerEdits) {
     return this.where({id})
-    .save(trainerEdits, {method: update})
+    .save(trainerEdits, {method: 'update'})
     .then(trainer => trainer)
     .catch(error => error)
   }
