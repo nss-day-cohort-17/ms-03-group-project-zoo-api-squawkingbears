@@ -11,23 +11,23 @@ exports.seed = function(knex, Promise) {
       return Promise.all([
         // Inserts seed entries b-plate had id, tut doesn't??
         knex('zones').insert({
-          name: 'Northeast',
+          location: 'Northeast',
           aroma: 'Bad'      
         }),
         knex('zones').insert({
-          name: 'Northwest',
+          location: 'Northwest',
           aroma: 'Not that great'
         }),
         knex('zones').insert({
-          name: 'Southeast',
+          location: 'Southeast',
           aroma: 'Really Bad'     
         }),
         knex('zones').insert({
-          name: 'Southwest',
+          location: 'Southwest',
           aroma: 'Kind of okay because funnel cakes'
         }),
         knex('zones').insert({
-          name: 'Central',
+          location: 'Central',
           aroma: 'Horrible'  
         })
       ]);
