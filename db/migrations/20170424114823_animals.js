@@ -16,13 +16,13 @@ exports.up = function(knex, Promise) {
     table.string('name').notNullable();
     table.string('animal_type').notNullable();
   })
+
   .createTable('zoo_keepers', function(table){
     table.increments();
     table.integer('zone_id').unsigned().references('zones.id');
     table.string('name').notNullable();
     table.string('photo');
-  })
-  .createTable('animals', function(table){
+  }).createTable('animals', function(table){
     table.increments();
     table.integer('zone_id').unsigned().references('zones.id');
     table.integer('trainer_id').unsigned().references('trainers.id');
