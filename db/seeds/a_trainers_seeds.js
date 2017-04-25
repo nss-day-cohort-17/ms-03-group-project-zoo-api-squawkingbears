@@ -2,7 +2,7 @@
 // $ knex seed:make shows_seed --env development.
 // knex knows to put it in the db folder (?)
 
-// Then seeded the db with 
+// Then seeded the db with
 // $ knex seed:run --env development
 
 exports.seed = function(knex, Promise) {
@@ -13,7 +13,7 @@ exports.seed = function(knex, Promise) {
         knex('trainers').insert({
           name: 'Ash Ketchum',
           animal_type: 'Pokemon',
-          photo: 'http://orig11.deviantart.net/06cf/f/2016/191/e/8/ash_ketchum_render_by_tzblacktd-da9k0wb.png'        
+          photo: 'http://orig11.deviantart.net/06cf/f/2016/191/e/8/ash_ketchum_render_by_tzblacktd-da9k0wb.png'
         }),
         knex('trainers').insert({
           name: 'Hagrid',
@@ -23,7 +23,7 @@ exports.seed = function(knex, Promise) {
         knex('trainers').insert({
           name: 'Don Johnson',
           animal_type: 'Large Felines',
-          photo: 'http://fiftiesweb.com/tv/miami-vice-dj29.jpg'        
+          photo: 'http://fiftiesweb.com/tv/miami-vice-dj29.jpg'
         }),
         knex('trainers').insert({
           name: 'Steve Buscemi',
@@ -33,13 +33,13 @@ exports.seed = function(knex, Promise) {
         knex('trainers').insert({
           name: 'Woody Harrelson',
           animal_type: 'Primates',
-          photo: 'http://www.snakkle.com/wp-content/uploads/2012/09/woody-harrelson-cheers-tv-1985-photo-GC.jpg'        
-        }), 
+          photo: 'http://www.snakkle.com/wp-content/uploads/2012/09/woody-harrelson-cheers-tv-1985-photo-GC.jpg'
+        }),
         knex('trainers').insert({
           name: 'Bill Murray',
           animal_type: 'Birds of Prey',
           photo: 'http://www.thatericalper.com/wp-content/uploads/2016/03/bill-murray.jpg',
-        }), 
+        }),
         knex('trainers').insert({
           name: 'Garth Algar',
           animal_type: 'Reptiles',
