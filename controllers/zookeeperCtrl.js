@@ -6,7 +6,7 @@ const Zookeeper = require('./zookeeperMd')
 module.exports.getAll = (req, res, next) => {
   Zookeeper.getAll()
   .then(zookeeper => zookeeper)
-  .catch(error => next(error)
+  .catch(error => next(error))
 }
 
 module.exports.getOneZookeeper = ({body: {id}}, res, next) => {
