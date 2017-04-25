@@ -10,7 +10,7 @@ const { getAll, getOneTrainer, addTrainer, deleteTrainer, editTrainer } = requir
 router.get('/trainers', getAll);
 router.get('/trainers/:id', getOneTrainer);
 router.post('/trainers', addTrainer);
-router.delete('/trainers', deleteTrainer);
+router.delete('/trainers/:id', deleteTrainer);
 router.patch('/trainers', editTrainer);
 
 module.exports = router;

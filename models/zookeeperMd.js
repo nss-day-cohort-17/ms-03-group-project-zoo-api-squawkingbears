@@ -4,6 +4,7 @@ const { bookshelf } = require('../db/database')
 require('./zoneMd')
 
 const Zookeeper = bookshelf.Model.extend({
+
   tableName: 'zoo_keepers',
   zone: function() { return this.hasOne('Zone')}
 }, {

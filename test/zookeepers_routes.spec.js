@@ -47,7 +47,17 @@ describe('Zookeeper routes', () => {
   describe('POST addZookeeper', () => {
     it('should add a row to the zookeeper table with posted obj values', () => {
       return chai.request(server)
-      .get('api/zookeepers/{zone_id: 5, name: 'Abe Lincoln', photo: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRMPO-mm7j1uy81l3BxDUX6qB9P2bGYYWdv1uEIz9Yx6B2cCSG5' })
+      .post('api/zookeepers/')
+      .send({zone_id: 5, name: 'Abe Lincoln', photo: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRMPO-mm7j1uy81l3BxDUX6qB9P2bGYYWdv1uEIz9Yx6B2cCSG5' })
+      .then((res) => {
+        res.should.have.status(200);
+        res.should.be.json;
+        console.log(res);
+        // res.body.should.be.a('object');
+        // res.body.should.have.property('name');
+        // res.body.name.should.equal('Wilson');
+        // res.body.photo.should.be.a('string')
+      })
     })
   })
 
