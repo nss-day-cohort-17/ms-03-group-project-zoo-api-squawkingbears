@@ -10,7 +10,7 @@ const { getAll, getOneTrick, addTrick, deleteTrick, editTrick } = require('../co
 router.get('/tricks', getAll);
 router.get('/tricks/:id', getOneTrick);
 router.post('/tricks', addTrick);
-router.delete('/deleteTrick/:id', deleteTrick);
-router.patch('/tracks', editTrick)
+router.delete('/tricks/:id', deleteTrick);
+router.patch('/tricks', editTrick)
 
 module.exports = router;

@@ -24,7 +24,7 @@ module.exports.getOneTrick = ({params: {id}}, res, next) => {
 };
 
 module.exports.addTrick = ({body}, res, next) => {
-  Trick.addTrick(newTrick)
+  Trick.addTrick(body)
   .then(trickId => {
     res.status(200).json(trickId)
   })
@@ -34,9 +34,9 @@ module.exports.addTrick = ({body}, res, next) => {
 };
 
 module.exports.deleteTrick = ({params: {id}}, res, next) => {
-  Trick.deleteTrick(trickId)
+  Trick.deleteTrick(id)
   .then(trick => {
-    res.status(200).json(trick)
+    res.status(202).json(trick)
   })
   .catch(error => {
     next(error);

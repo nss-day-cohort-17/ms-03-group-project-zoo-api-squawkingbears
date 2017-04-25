@@ -9,71 +9,70 @@ const server = require('../app');
 const { knex } = require('../db/database');
 chai.use(chaiHttp);
 
-describe('Zones routes', () => {
+describe('Tricks routes', () => {
 
   beforeEach( () => knex.migrate.rollback()
   .then( () => knex.migrate.latest())
   .then( () => knex.seed.run()))
 
-  describe('Get all the zones', () => {
-    it('should get all zones', () => {
+  describe('Get all the tricks', () => {
+    it('should get all tricks', () => {
       return chai.request(server)
-      .get('/api/zones')
-      .then( res => {
+      .get('/api/tricks')
+      .then( (res) => {
         res.should.have.status(200);
         res.should.be.json
         res.body.should.be.a('array');
-        res.body[0].should.have.property('location');
+        res.body[0].should.have.property('name');
       });
     });
   });
 
-  describe('Get one animal', () => {
-    it('should get one animal', () => {
+    describe('Get one tricks', () => {
+    it('should get one tricks', () => {
       return chai.request(server)
-      .get('/api/zones/3')
-      .then( res => {
-        res.should.have.status(200)
+      .get('/api/tricks/1')
+      .then( (res) => {
+        res.should.have.status(200);
         res.should.be.json
-        res.body.should.be.a('object')
-        res.body.should.have.property('location');
-      })
-    })
-  })
+        res.body.should.be.a('object');
+        res.body.should.have.property('name');
+        // res.body.name.should.equal('Ash Ketchum');
+      });
+    });
+  });
 
-  describe('POST api/zones', () => {
-    it('should add an zone', () => {
+    describe('POST api/tricks', () => {
+    it('should add a trick', () => {
       return chai.request(server)
-      .post('/api/zones')
+      .post('/api/tricks')
       .send({
-          location: 'Northcentral',
-          aroma: 'Actually Okay'     
+          name: 'Test Trick',
+          animal_type: 'Large Felines'  
       })
       .then( res => {
         res.should.have.status(200)
         res.should.be.json
         res.body.should.be.a('object')
-        res.body.id.should.equal(6);
       })
     })
   })
 
-  describe('DELETE api/zones/:id', () => {
-    it('should remove a single item from shows table', () => {
+    describe('DELETE api/tricks/:id', () => {
+    it('should remove a single item from tricks table', () => {
       return chai.request(server)
-      .delete('/api/zones/6')
+      .delete('/api/tricks/5')
       .then( (res) => {
        res.should.have.status(202);
        res.should.be.json;
        res.body.should.be.a('object');
        
        chai.request(server)
-       .get('/api/zones')
+       .get('/api/trainers')
        .then( (res) => {
         res.should.have.status(200);
         res.should.be.json
         res.body.should.be.a('array');
-        res.body[4].should.have.property('location');
        });
       });
     });
