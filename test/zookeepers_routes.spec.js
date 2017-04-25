@@ -48,14 +48,14 @@ describe('Zookeeper routes', () => {
     it('should add a row to the zookeeper table with posted obj values', () => {
       return chai.request(server)
       .post('/api/zookeepers')
-      .send({zone_id: 5, name: 'test bro', photo: '' })
+      .send({zone_id: 5, name: 'Babe Ruth', photo: 'http://www.gettyimages.com/gi-resources/images/Embed/new/embed2.jpg' })
       .then((res) => {
         res.should.have.status(200);
         res.should.be.json;
-        // res.body.should.be.a('object');
-        // res.body.should.have.property('name');
-        // res.body.name.should.equal('Wilson');
-        // res.body.photo.should.be.a('string')
+        res.body.should.be.a('object');
+        res.body.should.have.property('name');
+        res.body.name.should.equal('Babe Ruth');
+        res.body.id.should.equal(6);
       })
     })
   })
