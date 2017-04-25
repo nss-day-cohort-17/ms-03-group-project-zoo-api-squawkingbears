@@ -20,7 +20,6 @@ describe('Trainer routes', () => {
       return chai.request(server)
       .get('/api/trainers')
       .then( (res) => {
-        console.log(res.body)
         res.should.have.status(200);
         res.should.be.json
         res.body.should.be.a('array');
@@ -70,7 +69,7 @@ describe('Trainer routes', () => {
        res.should.have.status(202);
        res.should.be.json;
        res.body.should.be.a('object');
-       
+
       //  chai.request(server)
       //  .get('/api/trainers')
       //  .then( (res) => {
@@ -85,4 +84,3 @@ describe('Trainer routes', () => {
   });
 
 })
-
