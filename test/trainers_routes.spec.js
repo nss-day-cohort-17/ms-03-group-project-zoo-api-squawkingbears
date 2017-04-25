@@ -15,18 +15,20 @@ describe('Trainer routes', () => {
  .then( () => knex.migrate.latest())
  .then( () => knex.seed.run()))
 
- describe('Get all the trainers', () => {
-   it('should get all trainers', () => {
-     return chai.request(server)
-     .get('/api/trainers')
-     .then( (res) => {
-       res.should.have.status(200);
-       res.should.be.json
-       res.body.should.be.a('array');
-       res.body[0].should.have.property('name');
-     });
-   });
- });
+
+  describe('Get all the trainers', () => {
+    it('should get all trainers', () => {
+      return chai.request(server)
+      .get('/api/trainers')
+      .then( (res) => {
+        res.should.have.status(200);
+        res.should.be.json
+        res.body.should.be.a('array');
+        res.body[0].should.have.property('name');
+        // res.body[0].name.should.equal('Ash Ketchum');
+      });
+    });
+  });
 
   describe('Get one trainer', () => {
    it('should get one trainer', () => {
@@ -71,10 +73,19 @@ describe('Trainer routes', () => {
       chai.request(server)
       .get('/api/trainers')
       .then( (res) => {
-       res.should.have.status(200);
-       res.should.be.json
-       res.body.should.be.a('array');
-       res.body[0].should.have.property('name');
+       res.should.have.status(202);
+       res.should.be.json;
+       res.body.should.be.a('object');
+
+      //  chai.request(server)
+      //  .get('/api/trainers')
+      //  .then( (res) => {
+      //   res.should.have.status(200);
+      //   res.should.be.json
+      //   res.body.should.be.a('array');
+      //   res.body[0].should.have.property('name');
+      //   res.body[0].name.should.equal('Willy');
+      //  });
       });
      });
    });

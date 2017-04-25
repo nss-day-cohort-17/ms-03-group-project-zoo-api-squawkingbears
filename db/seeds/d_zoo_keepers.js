@@ -2,7 +2,7 @@
 // $ knex seed:make shows_seed --env development.
 // knex knows to put it in the db folder (?)
 
-// Then seeded the db with 
+// Then seeded the db with
 // $ knex seed:run --env development
 
 exports.seed = function(knex, Promise) {
@@ -13,7 +13,7 @@ exports.seed = function(knex, Promise) {
         knex('zoo_keepers').insert({
           zone_id: 1,
           name: 'Andrew Chalkly',
-          photo: 'https://uploads.teamtreehouse.com/production/profile-photos/26170/thumb_TeacherShoot-Andrew.jpg'      
+          photo: 'https://uploads.teamtreehouse.com/production/profile-photos/26170/thumb_TeacherShoot-Andrew.jpg'
         }),
         knex('zoo_keepers').insert({
           zone_id: 2,
@@ -23,7 +23,7 @@ exports.seed = function(knex, Promise) {
         knex('zoo_keepers').insert({
           zone_id: 3,
           name: 'Wilson',
-          photo: 'https://shop.wilson.com/media/catalog/product/w/t/wth4615-1.jpg'     
+          photo: 'https://shop.wilson.com/media/catalog/product/w/t/wth4615-1.jpg'
         }),
         knex('zoo_keepers').insert({
           zone_id: 4,
@@ -33,7 +33,7 @@ exports.seed = function(knex, Promise) {
         knex('zoo_keepers').insert({
           zone_id: 5,
           name: 'Abe Lincoln',
-          photo: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRMPO-mm7j1uy81l3BxDUX6qB9P2bGYYWdv1uEIz9Yx6B2cCSG5'  
+          photo: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRMPO-mm7j1uy81l3BxDUX6qB9P2bGYYWdv1uEIz9Yx6B2cCSG5'
         })
       ]);
     });
