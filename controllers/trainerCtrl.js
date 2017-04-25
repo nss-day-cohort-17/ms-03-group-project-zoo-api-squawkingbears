@@ -9,7 +9,7 @@ module.exports.getAll = (req, res, next) => {
   .catch(error => next(error))
 }
 
-module.exports.getOneTrainer = ({body: {params: {id}}, res, next) => {
+module.exports.getOneTrainer = ({params: {id}}, res, next) => {
   Trainer.getOneTrainer(id)
   .then(trainer => res.status(200).json(trainer))
   .catch(error => next(error))
@@ -21,7 +21,7 @@ module.exports.addTrainer = ({body}, res, next) => {
   .catch(error => next(error))
 }
 
-module.exports.deleteTrainer = ({body: {params: {id}}, res, next) => {
+module.exports.deleteTrainer = ({params: {id}}, res, next) => {
   Trainer.deleteTrainer(id)
   .then(trainer => res.status(200).json(trainer))
   .catch(error => next(error))
