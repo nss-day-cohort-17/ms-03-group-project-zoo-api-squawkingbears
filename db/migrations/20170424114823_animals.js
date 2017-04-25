@@ -1,4 +1,3 @@
-
 exports.up = function(knex, Promise) {
   return knex.schema.createTable('trainers', function(table){
     table.increments();
@@ -32,7 +31,7 @@ exports.up = function(knex, Promise) {
     table.string('species').notNullable();
     table.integer('age').notNullable();
   })
-  
+
 };
 
 exports.down = (knex, Promise) => knex.schema.dropTable('animals').dropTable('zoo_keepers').dropTable('trainers').dropTable('zones').dropTable('tricks')
