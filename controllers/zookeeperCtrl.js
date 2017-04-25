@@ -1,7 +1,7 @@
 'use strict'
 
 const { bookshelf } = require('../db/database')
-const Zookeeper = require('./zookeeperMd')
+const Zookeeper = require('../models/zookeeperMd')
 
 module.exports.getAll = (req, res, next) => {
   Zookeeper.getAll()

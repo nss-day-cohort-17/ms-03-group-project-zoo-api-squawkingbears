@@ -9,7 +9,7 @@ module.exports.getAll = (req, res, next) => {
   .catch(error => next(error))
 }
 
-module.exports.getOneAnimal = ({body: { params: {id} }}, res, next) => {
+module.exports.getOneAnimal = ({ params: {id} }, res, next) => {
   Animal.getOneAnimal(id)
   .then(animal => res.status(200).json(animal))
   .catch(error => next(error))
@@ -21,9 +21,9 @@ module.exports.addAnimal = ({body}, res, next) => {
   .catch(error => next(error))
 }
 
-module.exports.deleteAnimal = ({body: {params: {id} }}, res, next) => {
+module.exports.deleteAnimal = ({params: {id} }, res, next) => {
   Animal.deleteAnimal(id)
-  .then(animal => res.status(200).json(animal))
+  .then(animal => res.status(202).json(animal))
   .catch(error => next(error))
 }
 

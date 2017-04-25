@@ -1,7 +1,7 @@
 'use strict';
 
 const { bookshelf } = require('../db/database');
-const Trick = require('../models/trickCtrl');
+const Trick = require('../models/trickMd');
 
 module.exports.getAll = (req, res, next) => {
   Trick.getAll()
