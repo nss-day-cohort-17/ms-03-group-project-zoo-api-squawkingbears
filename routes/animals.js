@@ -7,7 +7,6 @@ const router = Router();
 const { getAll, getOneAnimal, addAnimal, deleteAnimal, editAnimal } = require('../controllers/animalCtrl');
 
 
-
 router.get('/animals', getAll);
 router.get('/animals/:id', getOneAnimal);
 router.post('/animals', addAnimal);
