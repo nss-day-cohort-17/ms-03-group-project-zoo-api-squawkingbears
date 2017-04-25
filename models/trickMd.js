@@ -3,7 +3,8 @@
 const { bookshelf } = require('../db/database')
 
 const Trick = bookshelf.Model.extend({
-  tableName: 'tricks'
+  tableName: 'tricks',
+  
 }, {
   getAll: function() {
     return this.forge()
@@ -36,3 +37,5 @@ const Trick = bookshelf.Model.extend({
     .catch(error => error)
   }
 })
+
+module.exports = bookshelf.Model("Trick", Trick)
