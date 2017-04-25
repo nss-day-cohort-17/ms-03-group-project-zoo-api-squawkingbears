@@ -9,22 +9,22 @@ const server = require('../app');
 const { knex } = require('../db/database');
 chai.use(chaiHttp);
 
-describe('Animals routes', () => {
+describe('Zones routes', () => {
 
   beforeEach( () => knex.migrate.rollback()
   .then( () => knex.migrate.latest())
   .then( () => knex.seed.run()))
 
-  describe('Get all the animals', () => {
-    it('should get all animals', () => {
+  describe('Get all the zones', () => {
+    it('should get all zones', () => {
       return chai.request(server)
-      .get('/api/animals')
-      .then( (res) => {
+      .get('/api/zones')
+      .then( res => {
         res.should.have.status(200);
         res.should.be.json
         res.body.should.be.a('array');
-        res.body[0].should.have.property('name');
-        res.body[0].name.should.equal('Willy');
+        res.body[0].should.have.property('location');
+        res.body[0].location.should.equal('Northeast');
       });
     });
   });
@@ -32,56 +32,51 @@ describe('Animals routes', () => {
   describe('Get one animal', () => {
     it('should get one animal', () => {
       return chai.request(server)
-      .get('/api/animals/3')
+      .get('/api/zones/3')
       .then( res => {
         res.should.have.status(200)
         res.should.be.json
         res.body.should.be.a('object')
-        res.body.should.have.property('name');
-        res.body.name.should.equal('Dunston')
+        res.body.should.have.property('location');
+        res.body.aroma.should.equal('Really Bad')
       })
     })
   })
 
-  describe('POST api/animals', () => {
-    it('should add an animal', () => {
+  describe('POST api/zones', () => {
+    it('should add an zone', () => {
       return chai.request(server)
-      .post('/api/animals')
+      .post('/api/zones')
       .send({
-          zone_id: 1,
-          trainer_id: 4,
-          name: 'Johnny',
-          photo: '',
-          type: 'Aquatic Mammals',
-          species: 'Blue Whale',
-          age: 22   
+          location: 'Northcentral',
+          aroma: 'Actually Okay'     
       })
       .then( res => {
         res.should.have.status(200)
         res.should.be.json
         res.body.should.be.a('object')
-        res.body.should.have.property('id');
+        res.body.id.should.equal(6);
       })
     })
   })
 
-  describe('DELETE api/animals/:id', () => {
+  describe('DELETE api/zones/:id', () => {
     it('should remove a single item from shows table', () => {
       return chai.request(server)
-      .delete('/api/animals/4')
+      .delete('/api/zones/6')
       .then( (res) => {
        res.should.have.status(202);
        res.should.be.json;
        res.body.should.be.a('object');
        
        chai.request(server)
-       .get('/api/animals')
+       .get('/api/zones')
        .then( (res) => {
         res.should.have.status(200);
         res.should.be.json
         res.body.should.be.a('array');
-        res.body[0].should.have.property('name');
-        res.body[0].name.should.equal('Willy');
+        res.body[4].should.have.property('location');
+        res.body[4].aroma.should.equal('Horrible');
        });
       });
     });
