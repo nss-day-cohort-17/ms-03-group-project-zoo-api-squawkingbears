@@ -10,32 +10,35 @@ const ZooKeeper = bookshelf.Model.extend({
   getAll: function() {
     return this.forge()
     .fetchAll()
-    .then(zooKeepers => zooKeepers)
+    .then(zookeepers => zookeepers)
     .catch(error => error)
   },
-  getOneZooKeeper: function(id) {
+  getOneZookeeper: function(id) {
     return this.forge({id})
     .fetch()
-    .then(zooKeeper => zooKeeper)
+    .then(zookeeper => zookeeper)
     .catch(error => error)
   },
-  addZooKeeper: function(newZooKeeper) {
+  addZookeeper: function(newZooKeeper) {
     return this.forge(newZooKeeper)
     .save()
-    .then(zooKeeper => zooKeeper)
+    .then(zookeeper => zookeeper)
     .catch(error => error)
   },
-  deleteZooKeeper: function(id) {
+  deleteZookeeper: function(id) {
     return this.forge({id})
     .destroy()
-    .then(zooKeeper => zooKeeper)
+    .then(zookeeper => zookeeper)
     .catch(error => error)
   },
-  editZooKeeper: function(id, zooKeeperEdits) {
+  editZookeeper: function(id, zookeeperEdits) {
     return this.where({id})
-    .save(zooKeeperEdits, {method: update})
-    .then(zooKeeper => zooKeeper)
+    .save(zookeeperEdits, {method: update})
+    .then(zookeeper => zookeeper)
     .catch(error => error)
   }
 
 })
+
+
+module.exports = bookshelf.Model("ZooKeeper", ZooKeeper)
