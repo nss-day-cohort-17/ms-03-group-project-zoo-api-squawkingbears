@@ -4,7 +4,7 @@ const { bookshelf } = require('../db/database')
 require('./zoneMd')
 
 const ZooKeeper = bookshelf.Model.extend({
-  tableName: 'zookeepers',
+  tableName: 'zoo_keepers',
   zone: function() { return this.hasOne('Zone')}
 }, {
   getAll: function() {
@@ -41,4 +41,3 @@ const ZooKeeper = bookshelf.Model.extend({
 })
 
 module.exports = bookshelf.model("ZooKeeper", ZooKeeper)
-

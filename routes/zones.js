@@ -11,6 +11,6 @@ router.get('/zones', getAll);
 router.get('/zones/:id', getOneZone);
 router.post('/zones', addZone);
 router.delete('/zones/:id', deleteZone);
-router.patch('/zones', editAnimal);
+router.patch('/zones', editZone);
 
 module.exports = router;

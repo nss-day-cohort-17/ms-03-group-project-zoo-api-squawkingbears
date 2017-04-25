@@ -7,7 +7,7 @@ module.exports.getAll = (req, res, next) => {
   Zone.getAll()
   .then(zones => {
     res.status(200).json(zones);
-  });
+  })
   .catch(error => {
     next(error);
   });
@@ -36,7 +36,7 @@ module.exports.addZone = ({body}, res, next) => {
 module.exports.deleteZone = ({params: {id}}, res, next) => {
   Zone.deleteZone(id)
   .then(zone => {
-    res.status(200).json(zone)
+    res.status(202).json(zone)
   })
   .catch(error => {
     next(error);
