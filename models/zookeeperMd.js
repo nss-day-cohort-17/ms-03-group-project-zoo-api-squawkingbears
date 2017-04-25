@@ -39,3 +39,6 @@ const ZooKeeper = bookshelf.Model.extend({
   }
 
 })
+
+
+module.exports = bookshelf.Model("ZooKeeper", ZooKeeper)
