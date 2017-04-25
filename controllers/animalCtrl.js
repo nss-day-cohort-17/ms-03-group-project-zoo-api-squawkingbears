@@ -28,7 +28,8 @@ module.exports.deleteAnimal = ({body: {id}}, res, next) => {
 }
 
 module.exports.editAnimal = ({body}, res, next) => {
-  Animal.editAnimal
+  const id = body.id
+  Animal.editAnimal(id, body)
   .then(animal => res.status(200).json(animal))
   .catch(error => next(error))
 }
