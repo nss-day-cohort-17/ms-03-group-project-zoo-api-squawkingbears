@@ -10,7 +10,7 @@ router.get('/zookeepers', getAll);
 router.get('/zookeepers/:id', getOneZookeeper);
 router.post('/zookeepers/', addZookeeper);
 router.delete('/zookeepers/:id', deleteZookeeper);
-router.patch('/zookeepers', editZookeeper)
+router.put('/zookeepers', editZookeeper)
 
 
 module.exports = router;

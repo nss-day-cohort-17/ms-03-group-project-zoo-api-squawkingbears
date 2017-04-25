@@ -60,4 +60,30 @@ describe('Zookeeper routes', () => {
     })
   })
 
+  describe('DELETE zookeeper', () => {
+    it('should delete the requested row from the zookeeper table', () => {
+      return chai.request(server)
+      .delete('/api/zookeepers/2')
+      .then( (res) => {
+        //the delete method returns an empty obj
+        res.should.have.status(200);
+        res.should.be.json;
+        res.body.should.be.a('object');
+      })
+    })
+  })
+
+
+  describe('PATCH zookeeper', () => {
+    it('should update the row ', () => {
+      return chai.request(server)
+      .put('/api/zookeepers')
+      .send({zone_id: 5, name: 'Chappy Baker', photo: 'http://www.gettyimages.com/gi-resources/images/Embed/new/embed2.jpg' })
+      .then( (res) => {
+        console.log(res.body);
+      })
+    })
+  })
+
+
 })

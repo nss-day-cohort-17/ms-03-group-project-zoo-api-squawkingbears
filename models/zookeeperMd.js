@@ -34,7 +34,7 @@ const Zookeeper = bookshelf.Model.extend({
   },
   editZookeeper: function(id, zookeeperEdits) {
     return this.where({id})
-    .save(zookeeperEdits, {method: update})
+    .save(zookeeperEdits, {method: 'update'})
     .then(zookeeper => zookeeper)
     .catch(error => error)
   }
