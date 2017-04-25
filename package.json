@@ -17,7 +17,7 @@
     "mocha": "^3.3.0"
   },
   "scripts": {
-    "test": "mocha",
+    "test": "nodemon --exec \"mocha --recursive\" -R list",
     "start": "nodemon app.js"
   },
   "repository": {

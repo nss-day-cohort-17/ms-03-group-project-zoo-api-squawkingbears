@@ -42,4 +42,4 @@ const Zone = bookshelf.Model.extend({
 })
 
 
-module.exports = bookshelf.Model("Zone", Zone)
+module.exports = bookshelf.model("Zone", Zone)

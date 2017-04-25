@@ -7,7 +7,7 @@ module.exports.getAll = (req, res, next) => {
   Zone.getAll()
   .then(zones => {
     res.status(200).json(zones);
-  })
+  });
   .catch(error => {
     next(error);
   });
@@ -43,8 +43,9 @@ module.exports.deleteZone = ({params: {id}}, res, next) => {
   });
 };
 
-module.exports.editZone = (req, res, next) => {
-  Zone.editZone(id, zoneEdits)
+module.exports.editZone = ({body}, res, next) => {
+  const id = body.id
+  Zone.editZone(id, body)
   .then(zone => {
     res.status(200).json(zone)
   })

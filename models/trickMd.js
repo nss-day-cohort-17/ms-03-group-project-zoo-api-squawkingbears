@@ -38,4 +38,4 @@ const Trick = bookshelf.Model.extend({
   }
 })
 
-module.exports = bookshelf.Model("Trick", Trick)
+module.exports = bookshelf.model("Trick", Trick)
