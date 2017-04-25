@@ -3,8 +3,8 @@
 const { bookshelf } = require('../db/database')
 require('./zoneMd')
 
-const Zookeeper = bookshelf.Model.extend({
-  tableName: zookeepers,
+const ZooKeeper = bookshelf.Model.extend({
+  tableName: 'zookeepers',
   zone: function() { return this.hasOne('Zone')}
 }, {
   getAll: function() {
@@ -40,5 +40,5 @@ const Zookeeper = bookshelf.Model.extend({
 
 })
 
+module.exports = bookshelf.model("ZooKeeper", ZooKeeper)
 
-module.exports = bookshelf.Model("Zookeeper", Zookeeper)
