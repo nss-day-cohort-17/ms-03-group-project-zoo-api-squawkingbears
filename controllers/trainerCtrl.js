@@ -23,7 +23,7 @@ module.exports.addTrainer = ({body}, res, next) => {
 
 module.exports.deleteTrainer = ({params: {id}}, res, next) => {
   Trainer.deleteTrainer(id)
-  .then(trainer => res.status(200).json(trainer))
+  .then(trainer => res.status(202).json(trainer))
   .catch(error => next(error))
 }
 
