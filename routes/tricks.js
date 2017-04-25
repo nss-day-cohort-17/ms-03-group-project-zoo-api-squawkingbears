@@ -4,13 +4,13 @@ const { Router } = require('express');
 
 const router = Router();
 
-const { getAll, getOneTrick, addTrick, deleteTrick, editTrick } = require('../constrollers/trickCtrl');
+const { getAll, getOneTrick, addTrick, deleteTrick, editTrick } = require('../controllers/trickCtrl');
 
 
 router.get('/tricks', getAll);
 router.get('/tricks/:id', getOneTrick);
 router.post('/tricks', addTrick);
-router.delete('/deleteTrick/:id', deleteTrick);
-router.patch('/tracks', editTrick)
+router.delete('/tricks/:id', deleteTrick);
+router.patch('/tricks', editTrick)
 
 module.exports = router;

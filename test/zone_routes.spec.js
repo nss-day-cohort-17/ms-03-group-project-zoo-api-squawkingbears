@@ -24,7 +24,6 @@ describe('Zones routes', () => {
         res.should.be.json
         res.body.should.be.a('array');
         res.body[0].should.have.property('location');
-        res.body[0].location.should.equal('Northeast');
       });
     });
   });
@@ -38,7 +37,6 @@ describe('Zones routes', () => {
         res.should.be.json
         res.body.should.be.a('object')
         res.body.should.have.property('location');
-        res.body.aroma.should.equal('Really Bad')
       })
     })
   })
@@ -76,7 +74,6 @@ describe('Zones routes', () => {
         res.should.be.json
         res.body.should.be.a('array');
         res.body[4].should.have.property('location');
-        res.body[4].aroma.should.equal('Horrible');
        });
       });
     });
