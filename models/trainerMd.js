@@ -4,7 +4,7 @@ const { bookshelf } = require('../db/database')
 require('./animalMd')
 
 const Trainer = bookshelf.Model.extend({
-  tableName: trainers,
+  tableName: "trainers",
   animals: function() { return this.hasMany('Animal')}
 }, {
   getAll: function() {
@@ -33,7 +33,7 @@ const Trainer = bookshelf.Model.extend({
   },
   editTrainer: function(id, trainerEdits) {
     return this.where({id})
-    .save(trainerEdits, {method: update})
+    .save(trainerEdits, {method: 'update'})
     .then(trainer => trainer)
     .catch(error => error)
   }
