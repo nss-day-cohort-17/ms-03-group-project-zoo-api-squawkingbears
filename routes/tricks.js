@@ -4,7 +4,7 @@ const { Router } = require('express');
 
 const router = Router();
 
-const { getAll, getOneTrick, addTrick, deleteTrick, editTrick } = require('../constrollers/trickCtrl');
+const { getAll, getOneTrick, addTrick, deleteTrick, editTrick } = require('../controllers/trickCtrl');
 
 
 router.get('/tricks', getAll);
