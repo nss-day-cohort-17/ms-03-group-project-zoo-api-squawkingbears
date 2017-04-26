@@ -2,6 +2,7 @@ exports.up = function(knex, Promise) {
   return knex.schema.createTable('trainers', function(table){
     table.increments();
     table.string('name').notNullable();
+    table.string('trick_name').notNullable();
     table.string('animal_type').notNullable();
     table.string('photo');
   })

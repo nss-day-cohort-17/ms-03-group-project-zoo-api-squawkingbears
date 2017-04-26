@@ -36,7 +36,7 @@ exports.seed = function(knex, Promise) {
         }),
         knex('tricks').insert({
           name: 'Catch-a-Fly',
-          animal_type: 'Land Based Reptiles'
+          animal_type: 'Reptiles'
         }),
       ]);
     });
