@@ -6,12 +6,12 @@ require('./trainerMd')
 
 const Animal = bookshelf.Model.extend({
   tableName: "animals",
-  zone: function() { return this.hasOne('Zone')},
-  trainer: function() { return this.hasOne('Trainer')}
+  zone: function() { return this.belongsTo('Zone')},
+  trainer: function() { return this.belongsTo('Trainer')}
 }, {
   getAll: function() {
     return this.forge()
-    .fetchAll()
+    .fetchAll({withRelated: ['zone', 'trainer'], require: true})
     .then(animals => animals)
     .catch(error => error)
   },

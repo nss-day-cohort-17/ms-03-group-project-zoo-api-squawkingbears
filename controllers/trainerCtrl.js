@@ -28,7 +28,8 @@ module.exports.deleteTrainer = ({params: {id}}, res, next) => {
 }
 
 module.exports.editTrainer = ({body}, res, next) => {
-  Trainer.editTrainer
+  const id = body.id
+  Trainer.editTrainer(id, body)
   .then(trainer => res.status(200).json(trainer))
   .catch(error => next(error))
 }
