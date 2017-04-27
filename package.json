@@ -17,7 +17,9 @@
     "mocha": "^3.3.0"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "nodemon --exec \"mocha --recursive\" -R list",
+    "start": "nodemon app.js",
+    "db:reset": "knex migrate:rollback && knex migrate:latest && knex seed:run"
   },
   "repository": {
     "type": "git",
